@@ -1,9 +1,27 @@
 import pandas as pd
 import pickle
 from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
 
+SEQID_COL = 'sequence'
 
-def data_to_list(data, seqid_col):
+def normalize(data: pd.DataFrame) -> None:
+    """
+    Args:
+        data (pandas.DataFrame) : DF to be normalized
+    Returns:
+        data (pandas.DataFrame) : Normalized df except for SEQID_COL column
+    """
+    sc = StandardScaler()
+
+    to_be_normalized = list(data.keys())
+    to_be_normalized.remove(SEQID_COL)
+
+    data[to_be_normalized] = sc.fit_transform(data[to_be_normalized])
+
+    return data
+
+def data_to_list(data):
     """
 
     Args:
@@ -12,10 +30,11 @@ def data_to_list(data, seqid_col):
 
     Returns:
         data (list) : The equivalent data so that each sequence has been
-            cast as an entry in a python list
+            cast as an pandas.DataFrame entry in a python list, dropping the
+            seqid_col as redundant
     """
-    seq_ids = list(data[seqid_col].unique())
-    data = [data[data[seqid_col] == i]  for i in seq_ids]
+    seq_ids = list(data[SEQID_COL].unique())
+    data = [data[data[SEQID_COL] == i].drop(SEQID_COL, axis=1) for i in seq_ids]
     return data
 
 
@@ -66,6 +85,7 @@ def prepare_dataset(data, target_cols, test_size=0.05):
         X_train, X_test, y_train, y_test : python lists
     """
 
+    data = normalize(data)
     data = data_to_list(data)
     data = order_sequences_by_length(data)
 

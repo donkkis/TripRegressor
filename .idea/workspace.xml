@@ -2,9 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a2f56e6f-27df-45e3-aec4-b453e90f41b4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/prepare_data.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notebooks/.ipynb_checkpoints/Model-checkpoint.ipynb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notebooks/.ipynb_checkpoints/Trippredictor_midsize_dummytest-checkpoint.ipynb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notebooks/23-09-2018__14_56_34.h5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notebooks/23-09-2018__14_56_34.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/TripPredictor_3.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/TripPredictor_3.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notebooks/Trippredictor_midsize_dummytest.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/notebooks/Trippredictor_midsize_dummytest.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notebooks/Model.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/notebooks/Model.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepare_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/prepare_data.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/preprocess_tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/preprocess_tests.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -17,7 +23,7 @@
     <session id="1143160350">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="1" />
+          <entry key="project.closed" value="2" />
           <entry key="project.open.time.3" value="1" />
           <entry key="project.open.time.7" value="1" />
           <entry key="project.opened" value="2" />
@@ -28,11 +34,12 @@
           <entry key="Python Console" value="406" />
           <entry key="dummy" value="5" />
           <entry key="py" value="5212" />
+          <entry key="txt" value="87" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PLAIN_TEXT" value="5" />
+          <entry key="PLAIN_TEXT" value="92" />
           <entry key="Python" value="5618" />
         </counts>
       </usages-collector>
@@ -47,15 +54,34 @@
         </counts>
       </usages-collector>
     </session>
+    <session id="-206529290">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.open.time.3" value="1" />
+          <entry key="project.opened" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="Python Console" value="55" />
+          <entry key="py" value="1460" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="Python" value="1515" />
+        </counts>
+      </usages-collector>
+    </session>
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.50096464">
+    <splitter split-orientation="horizontal" split-proportion="0.46816722">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/preprocess_utils.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="396">
+                <state relative-caret-position="3757">
                   <caret line="225" selection-start-line="225" selection-end-line="225" />
                   <folding>
                     <element signature="e#0#19#0" expanded="true" />
@@ -67,13 +93,12 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/prepare_data.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="540">
-                  <caret line="63" lean-forward="true" selection-start-line="63" selection-end-line="63" />
+                <state relative-caret-position="693">
+                  <caret line="87" column="25" selection-start-line="87" selection-start-column="25" selection-end-line="87" selection-end-column="25" />
                   <folding>
                     <element signature="e#0#19#0" expanded="true" />
-                    <marker date="1537630459577" expanded="true" signature="468:545" ph="..." />
-                    <marker date="1537630459577" expanded="true" signature="2033:2034" ph="..." />
-                    <marker date="1537630459577" expanded="true" signature="2033:2039" ph="..." />
+                    <marker date="1537714579948" expanded="true" signature="159:161" ph="..." />
+                    <marker date="1537714579948" expanded="true" signature="203:569" ph="..." />
                   </folding>
                 </state>
               </provider>
@@ -84,9 +109,6 @@
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="80">
                   <caret line="10" column="8" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="8" />
-                  <folding>
-                    <marker date="1537632046005" expanded="true" signature="178:184" ph="..." />
-                  </folding>
                 </state>
               </provider>
             </entry>
@@ -98,21 +120,11 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/preprocess_tests.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-324">
-                  <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
+                <state relative-caret-position="466">
+                  <caret line="83" column="12" selection-start-line="83" selection-start-column="12" selection-end-line="83" selection-end-column="12" />
                   <folding>
                     <element signature="e#0#15#0" expanded="true" />
-                    <marker date="1537632046005" expanded="true" signature="178:184" ph="..." />
-                    <marker date="1537632046005" expanded="true" signature="231:250" ph="..." />
-                    <marker date="1537632046005" expanded="true" signature="290:309" ph="..." />
-                    <marker date="1537632046005" expanded="true" signature="345:364" ph="..." />
-                    <marker date="1537632046005" expanded="true" signature="394:413" ph="..." />
-                    <marker date="1537632046005" expanded="true" signature="438:457" ph="..." />
-                    <marker date="1537632046005" expanded="true" signature="502:521" ph="..." />
-                    <marker date="1537632046005" expanded="true" signature="565:584" ph="..." />
-                    <marker date="1537632046005" expanded="true" signature="627:646" ph="..." />
-                    <marker date="1537632046005" expanded="true" signature="736:2078" ph="..." />
-                    <marker date="1537632046005" expanded="true" signature="770:775" ph="..." />
+                    <marker date="1537715163741" expanded="true" signature="2398:2417" ph="..." />
                   </folding>
                 </state>
               </provider>
@@ -142,10 +154,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-67" />
-    <option name="y" value="-8" />
-    <option name="width" value="1400" />
-    <option name="height" value="1000" />
+    <option name="width" value="960" />
+    <option name="height" value="1040" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -170,6 +180,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -177,17 +188,21 @@
               <item name="TripPredictor_3" type="b2602c69:ProjectViewProjectNode" />
               <item name="TripPredictor_3" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="TripPredictor_3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TripPredictor_3" type="462c0819:PsiDirectoryNode" />
+              <item name="notebooks" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="full.screen.before.presentation.mode" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.completion" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -266,26 +281,42 @@
       <option name="presentableId" value="Default" />
       <updated>1537358576288</updated>
     </task>
+    <task id="LOCAL-00001" summary="data preparation for model added; some unit tests pass">
+      <created>1537632234892</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1537632234892</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1176" extended-state="6" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.18071654" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.18071654" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="0" weight="0.32917467" />
+      <window_info anchor="bottom" id="Terminal" order="0" weight="0.32827735" />
       <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" />
-      <window_info anchor="bottom" id="Python Console" order="2" weight="0.34165066" />
+      <window_info anchor="bottom" id="Python Console" order="2" weight="0.34127843" />
       <window_info anchor="bottom" id="Message" order="3" />
       <window_info anchor="bottom" id="Find" order="4" weight="0.32917467" />
       <window_info anchor="bottom" id="Version Control" order="5" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Run" order="6" visible="true" weight="0.32821497" />
+      <window_info anchor="bottom" id="Run" order="6" visible="true" weight="0.32719395" />
       <window_info anchor="bottom" id="Debug" order="7" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="10" />
+      <window_info anchor="bottom" id="TODO" order="10" weight="0.32936078" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -313,10 +344,15 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="data preparation for model added; some unit tests pass" />
+    <option name="LAST_COMMIT_MESSAGE" value="data preparation for model added; some unit tests pass" />
+  </component>
   <component name="editorHistoryManager">
+    <entry file="file://$USER_HOME$/AppData/Local/Continuum/anaconda3/Lib/site-packages/IPython/core/interactiveshell.py" />
     <entry file="file://$PROJECT_DIR$/preprocess_utils.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
+        <state relative-caret-position="3757">
           <caret line="225" selection-start-line="225" selection-end-line="225" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
@@ -324,43 +360,25 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Continuum/anaconda3/Lib/site-packages/IPython/core/interactiveshell.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="2909" selection-start-line="2909" selection-end-line="2909" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/prepare_data.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="63" lean-forward="true" selection-start-line="63" selection-end-line="63" />
+        <state relative-caret-position="693">
+          <caret line="87" column="25" selection-start-line="87" selection-start-column="25" selection-end-line="87" selection-end-column="25" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
-            <marker date="1537630459577" expanded="true" signature="468:545" ph="..." />
-            <marker date="1537630459577" expanded="true" signature="2033:2034" ph="..." />
-            <marker date="1537630459577" expanded="true" signature="2033:2039" ph="..." />
+            <marker date="1537714579948" expanded="true" signature="159:161" ph="..." />
+            <marker date="1537714579948" expanded="true" signature="203:569" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/preprocess_tests.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-324">
-          <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
+        <state relative-caret-position="466">
+          <caret line="83" column="12" selection-start-line="83" selection-start-column="12" selection-end-line="83" selection-end-column="12" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
-            <marker date="1537632046005" expanded="true" signature="178:184" ph="..." />
-            <marker date="1537632046005" expanded="true" signature="231:250" ph="..." />
-            <marker date="1537632046005" expanded="true" signature="290:309" ph="..." />
-            <marker date="1537632046005" expanded="true" signature="345:364" ph="..." />
-            <marker date="1537632046005" expanded="true" signature="394:413" ph="..." />
-            <marker date="1537632046005" expanded="true" signature="438:457" ph="..." />
-            <marker date="1537632046005" expanded="true" signature="502:521" ph="..." />
-            <marker date="1537632046005" expanded="true" signature="565:584" ph="..." />
-            <marker date="1537632046005" expanded="true" signature="627:646" ph="..." />
-            <marker date="1537632046005" expanded="true" signature="736:2078" ph="..." />
-            <marker date="1537632046005" expanded="true" signature="770:775" ph="..." />
+            <marker date="1537715163741" expanded="true" signature="2398:2417" ph="..." />
           </folding>
         </state>
       </provider>
