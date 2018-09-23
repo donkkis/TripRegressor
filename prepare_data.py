@@ -1,9 +1,11 @@
 import pandas as pd
+import numpy as np
 import pickle
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 
 SEQID_COL = 'sequence'
+
 
 def normalize(data: pd.DataFrame) -> None:
     """
@@ -20,6 +22,7 @@ def normalize(data: pd.DataFrame) -> None:
     data[to_be_normalized] = sc.fit_transform(data[to_be_normalized])
 
     return data
+
 
 def data_to_list(data):
     """
@@ -99,4 +102,3 @@ def prepare_dataset(data, target_cols, test_size=0.05):
         pickle.dump(data, f)
 
     return X_train, X_test, y_train, y_test
-
