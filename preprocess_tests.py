@@ -2,9 +2,51 @@ import unittest
 import pandas as pd
 import numpy as np
 import random
+import uuid
 from preprocess_utils import *
 import prepare_data as prep
 
+
+# ---STATIC---
+
+def get_random_dataframe():
+    """
+    Helper for getting DataFrames with random dimensions/data and
+    populated with a dummy sequence id column for testing.
+
+    Returns:
+        df (pandas.Dataframe)
+
+    """
+    n_rows = np.random.randint(2, 50)
+    n_target_cols = np.random.randint(2, 50)
+    n_predictor_cols = np.random.randint(2, 50)
+
+    # Generate random data, +1 for the indexing variable
+    rand_array = np.around(np.random.randn(n_rows, n_target_cols + n_predictor_cols + 1), decimals=2)
+
+    # Assign random unique names to columns, idx is the indexing variable
+    # Some tests might fail if column names are not unique!
+    predictor_cols = [uuid.uuid4() for i in range(n_predictor_cols)] + ['idx']
+    target_cols = [uuid.uuid4() for i in range(n_target_cols)]
+    cols = predictor_cols + target_cols
+
+    df = pd.DataFrame(data=rand_array, columns=cols)
+
+    # Build dummy sequence indexing
+    idx = []
+    run_index = np.random.randint(0, 10)
+    for i in range(n_rows):
+        coinflip = np.random.random()
+        if coinflip >= 0.75:
+            run_index = run_index + 1
+        idx.append(run_index)
+    df['idx'] = idx
+
+    return df, predictor_cols, target_cols
+
+
+# ---TESTS---
 
 class TestPreprocessFunctions(unittest.TestCase):
 
@@ -43,14 +85,14 @@ class TestPrepareData(unittest.TestCase):
         df = pd.DataFrame(data=d)
 
         data1 = []
-        data1.append(pd.DataFrame(df.loc[0:2, 'col1']))
-        data1.append(pd.DataFrame(df.loc[3:4, 'col1']))
-        data1.append(pd.DataFrame(df.loc[5:8, 'col1']))
-        data1.append(pd.DataFrame(df.loc[9:9, 'col1'].transpose()))
+        data1.append(pd.DataFrame(df.loc[0:2, :]))
+        data1.append(pd.DataFrame(df.loc[3:4, :]))
+        data1.append(pd.DataFrame(df.loc[5:8, :]))
+        data1.append(pd.DataFrame(df.loc[9:9, :]))
 
         prep.SEQID_COL = 'col2'
-
         data2 = prep.data_to_list(df)
+
         self.assertEqual(len(data2), 4)
         self.assertTrue(data1[0].equals(data2[0]))
         self.assertTrue(data1[1].equals(data2[1]))
@@ -104,35 +146,25 @@ class TestPrepareData(unittest.TestCase):
             np.testing.assert_array_equal(randX[i], X_numpy[i])
             np.testing.assert_array_equal(randy[i], y_numpy[i])
 
-    def test_prepare_dataset(self):
-        n_rows = np.random.randint(10, 50)
-        n_target_cols = np.random.randint(2, 50)
-        n_predictor_cols = np.random.randint(2, 50)
-
-        rand_array = np.around(np.random.randn(n_rows, n_target_cols+n_predictor_cols+1), decimals=2)
-        predictor_cols = list(np.random.permutation(list(np.random.randint(1, 50, n_predictor_cols)) + ['idx']))
-        target_cols = list(np.random.permutation(list(np.random.randint(1, 50, n_target_cols))))
-        cols = predictor_cols + target_cols
-
+    def test_prepare_dataset_with_no_excludes_no_ordering_no_normalize(self):
         prep.SEQID_COL = 'idx'
+        df, predictor_cols, target_cols = get_random_dataframe()
 
-        df = pd.DataFrame(data=rand_array, columns=cols)
+        X, y = prep.prepare_dataset(df, target_cols, order=False, normalize_data=False, test_size=0.2)
 
-        idx = []
-        run_index = np.random.randint(0, 10)
-        for i in range(n_rows):
-            coinflip = np.random.random()
-            if coinflip >= 0.5:
-                run_index = run_index + 1
-            idx.append(run_index)
-        df['idx'] = idx
+        seq_ids = list(df['idx'].unique())
 
-        X_train, X_test, y_train, y_test = prep.prepare_dataset(df, target_cols, test_size=0.2)
-        self.assertIsNotNone(X_train)
-        self.assertIsNotNone(X_test)
-        self.assertIsNotNone(y_train)
-        self.assertIsNotNone(y_test)
+        sample: np.ndarray
+        for seq_id, sample in zip(seq_ids, X):
+            expect_steps = len(df[df['idx'] == seq_id])
+            expect_features = len(predictor_cols)
+            expect_dataframe = df.loc[df['idx'] == seq_id, predictor_cols]
+            expect_matrix = np.array(expect_dataframe, ndmin=3)
 
+            self.assertIsInstance(sample, np.ndarray)
+            self.assertTrue(sample.ndim == 3)
+            self.assertTrue(sample.shape == (1, expect_steps, expect_features))
+            np.testing.assert_array_equal(expect_matrix, sample)
 
     def test_normalize(self):
 
