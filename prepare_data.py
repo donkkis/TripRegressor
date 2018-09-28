@@ -1,3 +1,4 @@
+import argparse
 import pandas as pd
 import numpy as np
 import pickle
@@ -110,3 +111,24 @@ def prepare_dataset(data, target_cols, exclude=[], order=True, normalize_data=Tr
         pickle.dump(data, f)
 
     return X, y
+
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-f', '--file_path', type=str, required=True,
+                        help='Path to an object that can be parsed as pandas DataFrame')
+    parser.add_argument('-e', '--exclude', type=str, nargs='*',
+                        help='names of the columns to be dropped from the final dataset')
+    parser.add_argument('-test', '--test_size', type=float, default=0.2,
+                        help='float between 0 ... 1, the test set proportion')
+    parser.add_argument('-or', '--order_dataset', type=bool, default=False,
+                        help='order the resulting dataset to ascending order')
+    parser.add_argument('-n', '--normalize_data', type=bool, default=True,
+                        help='normalize data using StandardScaler')
+    parser.add_argument('-t', '--target_columns', type=str, nargs='+', required=True,
+                        help='column to be predicted')
+    parser.add_argument('-s', '--seqid_col', type=str, required=True,
+                        help='Column where sequence id is located')
+    FLAGS, unparsed = parser.parse_known_args()
+    SEQID_COL = FLAGS.seqid_col
+    print(FLAGS)

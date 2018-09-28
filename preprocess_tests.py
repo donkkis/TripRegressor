@@ -9,7 +9,7 @@ import prepare_data as prep
 
 # ---STATIC---
 
-def get_random_dataframe():
+def get_random_dataframe() -> (pd.DataFrame, list, list):
     """
     Helper for getting DataFrames with random dimensions/data and
     populated with a dummy sequence id column for testing.
@@ -165,6 +165,86 @@ class TestPrepareData(unittest.TestCase):
             self.assertTrue(sample.ndim == 3)
             self.assertTrue(sample.shape == (1, expect_steps, expect_features))
             np.testing.assert_array_equal(expect_matrix, sample)
+
+    def test_prepare_dataset_with_excludes(self):
+        prep.SEQID_COL = 'idx'
+        df, predictor_cols, target_cols = get_random_dataframe()
+
+        exclude_cols = [predictor_cols[0]]
+
+        X, y = prep.prepare_dataset(df, target_cols, exclude=exclude_cols,
+                                    order=False, normalize_data=False, test_size=0.2)
+
+        seq_ids = list(df['idx'].unique())
+
+        for seq_id, sample in zip(seq_ids, X):
+            expect_steps = len(df[df['idx'] == seq_id])
+            expect_features = len(predictor_cols) - len(exclude_cols)
+            expect_dataframe = df.loc[df['idx'] == seq_id, predictor_cols[1:]]
+            expect_matrix = np.array(expect_dataframe, ndmin=3)
+
+            self.assertIsInstance(sample, np.ndarray)
+            self.assertTrue(sample.ndim == 3)
+            self.assertTrue(sample.shape == (1, expect_steps, expect_features))
+            np.testing.assert_array_equal(expect_matrix, sample)
+
+    def test_prepare_dataset_with_ordering(self):
+        prep.SEQID_COL = 'seq_id'
+        df1 = pd.read_csv('./data/dummy_ordered.csv')
+        X1, y1 = prep.prepare_dataset(df1, target_cols=['soc'], order=False, normalize_data=False)
+
+        df2 = pd.read_csv('./data/dummy_unordered.csv')
+        X2, y2 = prep.prepare_dataset(df2, target_cols=['soc'], order=True, normalize_data=False)
+
+        self.assertTrue(len(X1) == len(X2) == len(y1) == len(y2))
+
+        for example1, label1, example2, label2 in zip(X1, y1, X2, y2):
+            np.testing.assert_array_equal(example1, example2)
+            np.testing.assert_array_equal(label1, label2)
+
+    def test_prepare_dataset_with_normalization(self):
+        prep.SEQID_COL = 'seq_id'
+        df1 = pd.read_csv('./data/dummy_ordered.csv')
+        X1, y1 = prep.prepare_dataset(df1, target_cols=['soc'], order=False, normalize_data=True)
+
+        df2 = pd.read_csv('./data/dummy_standardized.csv')
+        X2, y2 = prep.prepare_dataset(df2, target_cols=['soc'], order=False, normalize_data=False)
+
+        self.assertTrue(len(X1) == len(X2) == len(y1) == len(y2))
+
+        for example1, label1, example2, label2 in zip(X1, y1, X2, y2):
+            np.testing.assert_array_almost_equal(example1, example2)
+            np.testing.assert_array_almost_equal(label1, label2)
+
+    def test_prepare_dataset_with_normalization_and_ordering(self):
+        prep.SEQID_COL = 'seq_id'
+        df1 = pd.read_csv('./data/dummy_unordered.csv')
+        X1, y1 = prep.prepare_dataset(df1, target_cols=['soc'], order=True, normalize_data=True)
+
+        df2 = pd.read_csv('./data/dummy_standardized.csv')
+        X2, y2 = prep.prepare_dataset(df2, target_cols=['soc'], order=False, normalize_data=False)
+
+        self.assertTrue(len(X1) == len(X2) == len(y1) == len(y2))
+
+        for example1, label1, example2, label2 in zip(X1, y1, X2, y2):
+            np.testing.assert_array_almost_equal(example1, example2)
+            np.testing.assert_array_almost_equal(label1, label2)
+
+    def test_prepare_dataset_with_normalization_ordering_and_excludes(self):
+        prep.SEQID_COL = 'seq_id'
+        df1 = pd.read_csv('./data/dummy_unordered.csv')
+        df1 = df1.drop(['timestamp', 'gpslat'], axis=1)
+        X1, y1 = prep.prepare_dataset(df1, target_cols=['soc'], order=True, normalize_data=True)
+
+        df2 = pd.read_csv('./data/dummy_standardized.csv')
+        X2, y2 = prep.prepare_dataset(df2, target_cols=['soc'],
+                                      exclude=['timestamp', 'gpslat'], order=False, normalize_data=False)
+
+        self.assertTrue(len(X1) == len(X2) == len(y1) == len(y2))
+
+        for example1, label1, example2, label2 in zip(X1, y1, X2, y2):
+            np.testing.assert_array_almost_equal(example1, example2)
+            np.testing.assert_array_almost_equal(label1, label2)
 
     def test_normalize(self):
 

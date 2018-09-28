@@ -4,7 +4,6 @@
     <list default="true" id="a2f56e6f-27df-45e3-aec4-b453e90f41b4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/data.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/data/data.pickle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/dummy_data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/dummy_data.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/prepare_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/prepare_data.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/preprocess_tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/preprocess_tests.py" afterDir="false" />
     </list>
@@ -20,39 +19,39 @@
         <counts>
           <entry key="project.closed" value="2" />
           <entry key="project.open.time.3" value="1" />
-          <entry key="project.open.time.7" value="1" />
-          <entry key="project.opened" value="2" />
+          <entry key="project.open.time.7" value="2" />
+          <entry key="project.opened" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="Python Console" value="406" />
-          <entry key="dummy" value="5" />
-          <entry key="py" value="5212" />
+          <entry key="dummy" value="22" />
+          <entry key="py" value="7747" />
           <entry key="txt" value="87" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PLAIN_TEXT" value="92" />
-          <entry key="Python" value="5618" />
+          <entry key="PLAIN_TEXT" value="109" />
+          <entry key="Python" value="8153" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="py" value="5" />
+          <entry key="py" value="9" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Python" value="5" />
+          <entry key="Python" value="9" />
         </counts>
       </usages-collector>
     </session>
     <session id="-206529290">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="1" />
+          <entry key="project.closed" value="2" />
           <entry key="project.open.time.3" value="1" />
           <entry key="project.open.time.4" value="1" />
           <entry key="project.opened" value="2" />
@@ -62,12 +61,12 @@
         <counts>
           <entry key="Python Console" value="55" />
           <entry key="py" value="7460" />
-          <entry key="txt" value="90" />
+          <entry key="txt" value="162" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PLAIN_TEXT" value="90" />
+          <entry key="PLAIN_TEXT" value="162" />
           <entry key="Python" value="7515" />
         </counts>
       </usages-collector>
@@ -83,6 +82,9 @@
       </usages-collector>
     </session>
   </component>
+  <component name="FavoritesManager">
+    <favorites_list name="TripPredictor_3" />
+  </component>
   <component name="FileEditorManager">
     <splitter split-orientation="horizontal" split-proportion="0.46239373">
       <split-first>
@@ -90,7 +92,7 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/preprocess_utils.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="3757">
+                <state relative-caret-position="619">
                   <caret line="225" selection-start-line="225" selection-end-line="225" />
                   <folding>
                     <element signature="e#0#19#0" expanded="true" />
@@ -102,22 +104,41 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/prepare_data.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="574">
-                  <caret line="98" selection-start-line="98" selection-end-line="98" />
+                <state relative-caret-position="218">
+                  <caret line="38" selection-start-line="38" selection-end-line="38" />
                   <folding>
-                    <element signature="e#0#19#0" expanded="true" />
-                    <marker date="1537813842283" expanded="true" signature="178:181" ph="..." />
-                    <marker date="1537813842283" expanded="true" signature="231:598" ph="..." />
+                    <element signature="e#0#15#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$USER_HOME$/Anaconda3/Lib/site-packages/pandas/core/generic.py">
+            <entry file="file://$USER_HOME$/AppData/Local/Continuum/anaconda3/Lib/site-packages/pandas/core/indexes/base.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="191">
-                  <caret line="2529" selection-start-line="2529" selection-end-line="2529" />
+                <state relative-caret-position="225">
+                  <caret line="2524" selection-start-line="2524" selection-end-line="2524" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$USER_HOME$/AppData/Local/Continuum/anaconda3/Lib/argparse.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="218">
+                  <caret line="1450" selection-start-line="1450" selection-end-line="1450" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/train.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="-35">
+                  <caret line="100" selection-start-line="100" selection-end-line="100" />
+                  <folding>
+                    <element signature="e#0#35#0" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -125,8 +146,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/preprocess_tests.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="2482">
-                  <caret line="152" selection-start-line="152" selection-end-line="152" />
+                <state relative-caret-position="622">
+                  <caret line="210" selection-start-line="210" selection-end-line="210" />
                 </state>
               </provider>
             </entry>
@@ -138,25 +159,20 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/preprocess_tests.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="183">
-                  <caret line="150" column="39" selection-start-line="150" selection-start-column="39" selection-end-line="150" selection-end-column="39" />
+                <state relative-caret-position="362">
+                  <caret line="235" column="37" selection-start-line="235" selection-start-column="37" selection-end-line="235" selection-end-column="37" />
                   <folding>
-                    <element signature="e#0#15#0" expanded="true" />
-                    <marker date="1537817288905" expanded="true" signature="4436:4441" ph="..." />
+                    <marker date="1538140098113" expanded="true" signature="7022:9142" ph="..." />
                   </folding>
                 </state>
               </provider>
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/train.py">
+            <entry file="file://$USER_HOME$/AppData/Local/Continuum/anaconda3/Lib/site-packages/pandas/core/generic.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="586">
-                  <caret line="46" column="14" selection-start-line="46" selection-start-column="14" selection-end-line="46" selection-end-column="14" />
-                  <folding>
-                    <element signature="e#0#35#0" expanded="true" />
-                    <marker date="1537771922349" expanded="true" signature="3748:4576" ph="..." />
-                  </folding>
+                <state relative-caret-position="225">
+                  <caret line="2529" selection-start-line="2529" selection-end-line="2529" />
                 </state>
               </provider>
             </entry>
@@ -186,10 +202,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="988" />
-    <option name="y" value="-17" />
-    <option name="width" value="638" />
-    <option name="height" value="438" />
+    <option name="x" value="136" />
+    <option name="y" value="-18" />
+    <option name="width" value="1400" />
+    <option name="height" value="1000" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -214,6 +230,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -230,7 +247,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -343,10 +359,17 @@
       <option name="project" value="LOCAL" />
       <updated>1537771928019</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="refactored to exclude cols in prepare_dataset; added tests">
+      <created>1537817413653</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1537817413653</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
-  <component name="TodoView" selected-index="4">
+  <component name="TodoView">
     <todo-panel id="selected-file">
       <is-autoscroll-to-source value="true" />
     </todo-panel>
@@ -356,22 +379,23 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1176" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.18496802" />
-      <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="0" sideWeight="0.5014245" side_tool="true" weight="0.1849315" />
+      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.4985755" visible="true" weight="0.1849315" />
+      <window_info id="Structure" order="2" sideWeight="0.5014245" side_tool="true" weight="0.1849315" />
       <window_info anchor="bottom" id="Terminal" order="0" weight="0.32827735" />
-      <window_info anchor="bottom" id="Event Log" order="1" sideWeight="0.5010661" side_tool="true" visible="true" weight="0.32719395" />
+      <window_info anchor="bottom" id="Event Log" order="1" sideWeight="0.5015806" side_tool="true" visible="true" weight="0.32629558" />
       <window_info anchor="bottom" id="Python Console" order="2" weight="0.34127843" />
       <window_info anchor="bottom" id="Message" order="3" />
       <window_info anchor="bottom" id="Find" order="4" weight="0.32917467" />
       <window_info anchor="bottom" id="Version Control" order="5" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run" order="6" sideWeight="0.4989339" visible="true" weight="0.32719395" />
+      <window_info active="true" anchor="bottom" id="Run" order="6" sideWeight="0.49841937" visible="true" weight="0.32629558" />
       <window_info anchor="bottom" id="Debug" order="7" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="10" sideWeight="0.49946696" weight="0.32936078" />
+      <window_info anchor="bottom" id="TODO" order="10" sideWeight="0.49894625" weight="0.32917467" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -405,13 +429,25 @@
     <MESSAGE value="added feature normalization and some tests" />
     <MESSAGE value="tests added" />
     <MESSAGE value="train scripting started" />
-    <option name="LAST_COMMIT_MESSAGE" value="train scripting started" />
+    <MESSAGE value="refactored to exclude cols in prepare_dataset; added tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactored to exclude cols in prepare_dataset; added tests" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$USER_HOME$/AppData/Local/Continuum/anaconda3/Lib/site-packages/IPython/core/interactiveshell.py" />
+    <entry file="file://$USER_HOME$/Anaconda3/Lib/site-packages/pandas/core/generic.py" />
+    <entry file="file://$PROJECT_DIR$/train.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-35">
+          <caret line="100" selection-start-line="100" selection-end-line="100" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/preprocess_utils.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3757">
+        <state relative-caret-position="619">
           <caret line="225" selection-start-line="225" selection-end-line="225" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
@@ -419,39 +455,43 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/train.py">
+    <entry file="file://$USER_HOME$/AppData/Local/Continuum/anaconda3/Lib/argparse.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="586">
-          <caret line="46" column="14" selection-start-line="46" selection-start-column="14" selection-end-line="46" selection-end-column="14" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-            <marker date="1537771922349" expanded="true" signature="3748:4576" ph="..." />
-          </folding>
+        <state relative-caret-position="218">
+          <caret line="1450" selection-start-line="1450" selection-end-line="1450" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/preprocess_tests.py">
+    <entry file="file://$USER_HOME$/AppData/Local/Continuum/anaconda3/Lib/site-packages/pandas/core/indexes/base.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2482">
-          <caret line="152" selection-start-line="152" selection-end-line="152" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Anaconda3/Lib/site-packages/pandas/core/generic.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="191">
-          <caret line="2529" selection-start-line="2529" selection-end-line="2529" />
+        <state relative-caret-position="225">
+          <caret line="2524" selection-start-line="2524" selection-end-line="2524" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/prepare_data.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="574">
-          <caret line="98" selection-start-line="98" selection-end-line="98" />
+        <state relative-caret-position="218">
+          <caret line="38" selection-start-line="38" selection-end-line="38" />
           <folding>
-            <element signature="e#0#19#0" expanded="true" />
-            <marker date="1537813842283" expanded="true" signature="178:181" ph="..." />
-            <marker date="1537813842283" expanded="true" signature="231:598" ph="..." />
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Continuum/anaconda3/Lib/site-packages/pandas/core/generic.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="2529" selection-start-line="2529" selection-end-line="2529" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/preprocess_tests.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="362">
+          <caret line="235" column="37" selection-start-line="235" selection-start-column="37" selection-end-line="235" selection-end-column="37" />
+          <folding>
+            <marker date="1538140098113" expanded="true" signature="7022:9142" ph="..." />
           </folding>
         </state>
       </provider>
