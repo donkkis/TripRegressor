@@ -5,14 +5,16 @@ from keras.layers import TimeDistributed
 from keras.layers import LSTM
 from keras.layers import Dropout
 from keras.utils import Sequence
+from keras.callbacks import EarlyStopping
 from keras.callbacks import CSVLogger
 from keras.callbacks import ModelCheckpoint
-from sklearn.preprocessing import MinMaxScaler
-from sklearn.model_selection import train_test_split
+from datetime import datetime as dt
 import numpy as np
-import scipy.io as sio
-import matplotlib.pyplot as plt
-import pandas as pd
+import argparse
+import pickle
+import tensorflow as tf
+
+FLAGS = None
 
 
 class SequenceBatchGenerator(Sequence):
@@ -42,12 +44,21 @@ class SequenceBatchGenerator(Sequence):
 
     """
 
-    def __init__(self, x_set, y_set, batch_size):
+    def __init__(self, x_set, y_set, batch_size=128):
         """
-        TODO: Should implement a check that n_features is the same for all examples
         """
         self.x, self.y = x_set, y_set
         self.batch_size = batch_size
+
+        # Make sure n_features is same for all examples
+        unique_input_dims = len(set([example.shape[2] for example in x_set]))
+        unique_output_dims = len(set([example.shape[2] for example in y_set]))
+        if not unique_input_dims == unique_output_dims == 1:
+            raise Exception("n_features needs to be same for all examples")
+
+        self.input_dim = x_set[0].shape[2]
+        self.output_dim = y_set[0].shape[2]
+
 
     def __len__(self):
         return int(np.ceil(len(self.x) / float(self.batch_size)))
@@ -58,22 +69,20 @@ class SequenceBatchGenerator(Sequence):
 
         # get all the stuff required for reshaping
         max_timesteps_batch = max([seq.shape[1] for seq in batch_x])
-        input_dim = batch_x[0].shape[2]
-        output_dim = batch_y[0].shape[2]
 
         # initialize return variables as 3D tensors
-        batch_x_tensor = np.zeros((len(batch_x), max_timesteps_batch, input_dim))
-        batch_y_tensor = np.zeros((len(batch_y), max_timesteps_batch, output_dim))
+        batch_x_tensor = np.zeros((len(batch_x), max_timesteps_batch, self.input_dim))
+        batch_y_tensor = np.zeros((len(batch_y), max_timesteps_batch, self.output_dim))
 
         # Zero pad all samples within batch to max length
         for i in range(len(batch_x)):
             padding_dims = ((0, 0), (0, max_timesteps_batch - batch_x[i].shape[1]), (0, 0))
-            batch_x[i] = np.pad(batch_x[i], padding_dims, 'constant', constant_values=(None, 0))
-            batch_y[i] = np.pad(batch_y[i], padding_dims, 'constant', constant_values=(None, 0))
+            batch_x[i] = np.pad(batch_x[i], padding_dims, 'constant', constant_values=(None, 0.0))
+            batch_y[i] = np.pad(batch_y[i], padding_dims, 'constant', constant_values=(None, 0.0))
 
             # Reshape to meet Keras expectation
-            batch_x[i][0] = np.reshape(batch_x[i].transpose(), (1, max_timesteps_batch, input_dim))
-            batch_y[i][0] = np.reshape(batch_y[i].transpose(), (1, max_timesteps_batch, output_dim))
+            batch_x[i][0] = np.reshape(batch_x[i].transpose(), (1, max_timesteps_batch, self.input_dim))
+            batch_y[i][0] = np.reshape(batch_y[i].transpose(), (1, max_timesteps_batch, self.output_dim))
 
             # Append x, y to returnable tensor
             batch_x_tensor[i, :, :] = batch_x[i]
@@ -81,17 +90,18 @@ class SequenceBatchGenerator(Sequence):
 
         return batch_x_tensor, batch_y_tensor
 
-def get_model(lstm_layers=4, LSTM_units=200, dropout_rate=0.2):
+
+def get_model(input_dim, lstm_layers=1, lstm_units=50, dropout_rate=0.2):
     # Initialize the RNN
     model = Sequential()
 
     #LSTM Layers and dropout regularization
-    model.add(LSTM(units = LSTM_units, return_sequences=True,
-                       input_shape = (None, input_dim)))
+    model.add(LSTM(units = lstm_units, return_sequences=True,
+                   input_shape = (None, input_dim)))
     model.add(Dropout(rate = dropout_rate))
 
-    for i in range(layers-1):
-        model.add(LSTM(units = LSTM_units, return_sequences=True))
+    for i in range(lstm_layers-1):
+        model.add(LSTM(units = lstm_units, return_sequences=True))
         model.add(Dropout(rate = dropout_rate))
 
     #Linear output layer
@@ -100,38 +110,78 @@ def get_model(lstm_layers=4, LSTM_units=200, dropout_rate=0.2):
     return model
 
 
-def train(model, batch_gen, batch_test_gen):
+def mae_exclude_padding(y_true, y_pred):
     """
 
     Args:
-        model (keras.models.Sequential:
-        batch_gen (SequenceBatchGenerator):
-        batch_test_gen (SequenceBatchGenerator:
+        y_true, y_pred: tf.Tensors of shape (batch_size, max_timesteps, output_dim)
+    Returns:
+    """
+    y_mask = tf.not_equal(y_true, tf.constant(-999.0, dtype=tf.float32))
+    y_true_masked = tf.boolean_mask(y_true, y_mask)
+    y_pred_masked = tf.boolean_mask(y_pred, y_mask)
+
+    error = tf.reduce_mean(tf.abs(tf.subtract(y_true_masked, y_pred_masked)))
+
+    return error
+
+def train():
+    """
+
+    Args:
 
     Returns:
 
     """
+
     # Set up some useful stuff
-    from datetime import datetime as dt
+    X_train, X_test, y_train, y_test = pickle.load(open(FLAGS.file_path, 'rb'))
+    batch_gen = SequenceBatchGenerator(X_train, y_train)
+    batch_test_gen = SequenceBatchGenerator(X_test, y_test)
 
-    ny = dt.now().strftime("%d-%m-%Y__%H_%M_%S")
-    model_outfile = f'{ny}.h5'
+    # TODO Should check equal input_dim for X_test and X_train?
+    model = get_model(input_dim=batch_gen.input_dim, lstm_layers=FLAGS.lstm_layers,
+                      lstm_units=FLAGS.units_per_layer, dropout_rate=FLAGS.dropout_rate)
+    val_steps = np.floor(len(X_test) / FLAGS.batch_size_val)
+    train_steps = np.floor(len(X_train) / FLAGS.batch_size_train)
 
+    tic = dt.now().strftime("%d-%m-%Y__%H_%M_%S")
+    model_outfile = f'{tic}.h5'
+
+    # Initialize callbacks
     # save_best_only = True --> model_outfile will be overwritten each time val_loss improves
     model_checkpoint = ModelCheckpoint(model_outfile, monitor='val_loss', verbose=1, save_best_only=True)
-    csv_logger = CSVLogger(f'{ny}.log')
+    csv_logger = CSVLogger(f'{tic}.log')
+    early_stopping = EarlyStopping(monitor='val_loss', min_delta=0, patience=20, verbose=0,
+                                   mode='min')
 
     # Compile and train the model
-
-    model.compile(optimizer='adam', loss='mean_absolute_error')
-    model.fit_generator(batch_gen, epochs=100, verbose=1, validation_data=batch_test_gen,
-                            callbacks=[model_checkpoint, csv_logger])
+    model.compile(optimizer='adam', loss=mae_exclude_padding)
+    model.fit_generator(batch_gen,
+                        epochs=FLAGS.epochs,
+                        verbose=1,
+                        validation_data=batch_test_gen,
+                        use_multiprocessing=False,
+                        callbacks=[model_checkpoint, csv_logger, early_stopping])
 
 
 if __name__ == '__main__':
-    # TODO unpack X_train, X_test, y_train, y_test from pickled obj
-    X_train, X_test, y_train, y_test = None
-    batch_gen = SequenceBatchGenerator(X_train, y_train)
-    batch_test_gen = SequenceBatchGenerator(X_test, y_test)
-    model = get_model()
-    train(model, batch_gen, batch_test_gen)
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-f', '--file_path', type=str, required=True,
+                        help='Path to a pickled object containing X_train, X_test, y_test, y_train')
+    parser.add_argument('-e', '--epochs', type=int, required=True,
+                        help='Max number of epochs to train')
+    parser.add_argument('-p', '--patience', type=int, required=True,
+                        help='Epoch patience parameter for early stopping')
+    parser.add_argument('-l', '--lstm_layers', type=int, required=True,
+                        help='Number of LSTM layers')
+    parser.add_argument('-u', '--units_per_layer', type=int, required=True,
+                        help='Number of LSTM units per layer')
+    parser.add_argument('-k', '--dropout_rate', type=float, default=0.0,
+                        help='Reciprocal dropout probability (default = 1.0)')
+    parser.add_argument('-bt', '--batch_size_train', type=int, required=True,
+                        help='Training batch size')
+    parser.add_argument('-bv', '--batch_size_val', type=int, required=True,
+                        help='Validation batch size')
+    FLAGS, unparsed = parser.parse_known_args()
+    train()

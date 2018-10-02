@@ -5,6 +5,8 @@ import random
 import uuid
 from preprocess_utils import *
 import prepare_data as prep
+import train
+import tensorflow as tf
 
 
 # ---STATIC---
@@ -76,6 +78,38 @@ class TestPreprocessFunctions(unittest.TestCase):
 
     def test_preprocess_dataset(self):
         pass
+
+class TestTrainingHelpers(unittest.TestCase):
+
+    def test_mae_exclude_padding(self):
+        ytrue1 = np.array([[1, 2, 3, 4, -999, -999, -999, -999, -999],
+                        [2, 4, 6, 7, 2, 3, -999, -999, -999]], ndmin=3)
+
+        ypred1 = np.array([[0, 1, 2, 3, 522, 564, 542, 321, 123],
+                        [1, 3, 5, 6, 1, 2, 984, 154, 123]], ndmin=3)
+
+        ytrue2 = np.array([[5, 7, 9, 1, 2, 3, -999, -999, -999],
+                        [2, 3, 7, 8, 1, 2, 5, -999, -999]], ndmin=3)
+
+        ypred2 = np.array([[4, 6, 3, 2, 8, 1, 2, 3, -975],
+                        [1, 2, 8, 1, 2, 9, 9, 655, 871]], ndmin=3)
+
+        ytrue = np.concatenate((ytrue1, ytrue2))
+        ypred = np.concatenate((ypred1, ypred2))
+
+        ytrue_masked = ytrue[ytrue != -999]
+        ypred_masked = ypred[ytrue != -999]
+
+        # 2.130434782608696
+        error = np.mean(np.abs(np.subtract(ytrue_masked, ypred_masked)))
+
+        tens = tf.convert_to_tensor(ytrue, dtype=tf.float32)
+        tens2 = tf.convert_to_tensor(ypred, dtype=tf.float32)
+
+        with tf.Session() as sess:
+            mae_loss = train.mae_exclude_padding(tens, tens2)
+            self.assertAlmostEqual(error, mae_loss.eval())
+
 
 
 class TestPrepareData(unittest.TestCase):

@@ -1,4 +1,4 @@
-/data/trips_bulk.csv
-/data/midsize_dummy_preprocessed.csv
+data/
+models/
 dump.m
 trips_bulk.m
