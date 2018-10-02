@@ -77,8 +77,8 @@ class SequenceBatchGenerator(Sequence):
         # Zero pad all samples within batch to max length
         for i in range(len(batch_x)):
             padding_dims = ((0, 0), (0, max_timesteps_batch - batch_x[i].shape[1]), (0, 0))
-            batch_x[i] = np.pad(batch_x[i], padding_dims, 'constant', constant_values=(None, 0.0))
-            batch_y[i] = np.pad(batch_y[i], padding_dims, 'constant', constant_values=(None, 0.0))
+            batch_x[i] = np.pad(batch_x[i], padding_dims, 'constant', constant_values=(None, -999.0))
+            batch_y[i] = np.pad(batch_y[i], padding_dims, 'constant', constant_values=(None, -999.0))
 
             # Reshape to meet Keras expectation
             batch_x[i][0] = np.reshape(batch_x[i].transpose(), (1, max_timesteps_batch, self.input_dim))
