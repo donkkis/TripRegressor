@@ -172,12 +172,12 @@ def train():
     train_steps = np.floor(len(X_train) / FLAGS.batch_size_train)
 
     tic = dt.now().strftime("%d-%m-%Y__%H_%M_%S")
-    model_outfile = '{tic}.h5'.format(tic)
+    model_outfile = '{}.h5'.format(tic)
 
     # Initialize callbacks
     # save_best_only = True --> model_outfile will be overwritten each time val_loss improves
     model_checkpoint = ModelCheckpoint(model_outfile, monitor='val_loss', verbose=1, save_best_only=True)
-    csv_logger = CSVLogger('{tic}.log'.format(tic))
+    csv_logger = CSVLogger('{}.log'.format(tic))
     early_stopping = EarlyStopping(monitor='val_loss', min_delta=0, patience=20, verbose=0,
                                    mode='min')
 
