@@ -41,5 +41,5 @@
         type: integer
         default: 128
     inputs:
-    - name: training-data
-      default: datum://01663fa6-e802-fa45-4b34-5dc83ccfc114
+      - name: training-data
+        default: datum://01663fa6-e802-fa45-4b34-5dc83ccfc114
