@@ -27,7 +27,7 @@
         default: 200
       - name: dropout_rate
         pass-as: --dropout_rate={v}
-        description: Dropout probability (default: no dropout)
+        description: Dropout probability (default no dropout)
         type: float
         default: 0.0
       - name: batch_size_train
