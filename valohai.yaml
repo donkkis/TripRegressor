@@ -36,7 +36,7 @@
         type: integer
         default: 128
       - name: batch_size_test
-        pass-as: --batch_size_test={v}
+        pass-as: --batch_size_val={v}
         description: Testing batch size
         type: integer
         default: 128
