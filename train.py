@@ -12,6 +12,7 @@ from datetime import datetime as dt
 import numpy as np
 import argparse
 import pickle
+import os
 import tensorflow as tf
 
 FLAGS = None
@@ -125,6 +126,21 @@ def mae_exclude_padding(y_true, y_pred):
 
     return error
 
+def mse_exclude_padding(y_true, y_pred):
+    """
+
+    Args:
+        y_true, y_pred: tf.Tensors of shape (batch_size, max_timesteps, output_dim)
+    Returns:
+    """
+    y_mask = tf.not_equal(y_true, tf.constant(-999.0, dtype=tf.float32))
+    y_true_masked = tf.boolean_mask(y_true, y_mask)
+    y_pred_masked = tf.boolean_mask(y_pred, y_mask)
+
+    error = tf.reduce_mean(tf.square(tf.subtract(y_true_masked, y_pred_masked)))
+
+    return error
+
 def train():
     """
 
@@ -134,7 +150,17 @@ def train():
 
     """
 
+    def get_first_file(path):
+        filename = os.listdir(path)[0]
+        return os.path.join(path, filename)
+
     # Set up some useful stuff
+
+    if not FLAGS.file_path:
+        INPUTS_DIR = os.getenv('VH_INPUTS_DIR', './inputs')
+        INPUTS_DIR = os.path.join(INPUTS_DIR, 'training-data')
+        FLAGS.file_path = get_first_file(INPUTS_DIR)
+
     X_train, X_test, y_train, y_test = pickle.load(open(FLAGS.file_path, 'rb'))
     batch_gen = SequenceBatchGenerator(X_train, y_train)
     batch_test_gen = SequenceBatchGenerator(X_test, y_test)
@@ -156,7 +182,7 @@ def train():
                                    mode='min')
 
     # Compile and train the model
-    model.compile(optimizer='adam', loss=mae_exclude_padding)
+    model.compile(optimizer='adam', loss=mse_exclude_padding)
     model.fit_generator(batch_gen,
                         epochs=FLAGS.epochs,
                         verbose=1,
@@ -167,7 +193,7 @@ def train():
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('-f', '--file_path', type=str, required=True,
+    parser.add_argument('-f', '--file_path', type=str, required=False,
                         help='Path to a pickled object containing X_train, X_test, y_test, y_train')
     parser.add_argument('-e', '--epochs', type=int, required=True,
                         help='Max number of epochs to train')

@@ -1,0 +1,45 @@
+---
+
+- step:
+    name: Train model
+    image: valohai/keras:2.0.0-tensorflow1.0.1-python3.6-cuda8.0-cudnn5-devel-ubuntu16.04
+    command: python train.py {parameters}
+    parameters:
+      - name: epochs
+        pass-as: --epochs={v}
+        description: Max number of epochs to train
+        type: integer
+        default: 250
+      - name: patience
+        pass-as: --patience={v}
+        description: Epoch patience parameter for early stopping
+        type: integer
+        default: 20
+      - name: lstm_layers
+        pass-as: --lstm_layers={v}
+        description: Number of LSTM layers
+        type: integer
+        default: 4
+      - name: units_per_layer
+        pass-as: --units_per_layer={v}
+        description: Number of lstm units per layer
+        type: integer
+        default: 200
+      - name: dropout_rate
+        pass-as: --dropout_rate={v}
+        description: Dropout probability (default: no dropout)
+        type: float
+        default: 0.0
+      - name: batch_size_train
+        pass-as: --batch_size_train={v}
+        description: Training batch size
+        type: integer
+        default: 128
+      - name: batch_size_test
+        pass-as: --batch_size_test={v}
+        description: Testing batch size
+        type: integer
+        default: 128
+    inputs:
+    - name: training-data
+      default: datum://01663fa6-e802-fa45-4b34-5dc83ccfc114
