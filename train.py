@@ -48,7 +48,6 @@ class SequenceBatchGenerator(Sequence):
     def __init__(self, x_set, y_set, batch_size=128):
         """
         """
-        self.x, self.y = x_set, y_set
         self.batch_size = batch_size
 
         # Make sure n_features is same for all examples
@@ -60,6 +59,18 @@ class SequenceBatchGenerator(Sequence):
         self.input_dim = x_set[0].shape[2]
         self.output_dim = y_set[0].shape[2]
 
+        # TODO Refactor into a function and add unit test
+        # make sure sequences are ascending by length to reduce padding
+        # get the lenghts of the elements in x_train
+        lengths = np.array([[idx, trip.shape[1]] for idx, trip in enumerate(x_set)])
+        lengths = lengths[lengths[:, 1].argsort()]
+        # order x_train, y_train to ascending order by sequence length
+        idx = lengths[:, 0].tolist()
+
+        x_set = [x_set[i] for i in idx]
+        y_set = [y_set[i] for i in idx]
+
+        self.x, self.y = x_set, y_set
 
     def __len__(self):
         return int(np.ceil(len(self.x) / float(self.batch_size)))

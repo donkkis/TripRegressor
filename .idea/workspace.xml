@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="a2f56e6f-27df-45e3-aec4-b453e90f41b4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/preprocess.bat" beforeDir="false" afterPath="$PROJECT_DIR$/preprocess.bat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/train.bat" beforeDir="false" afterPath="$PROJECT_DIR$/train.bat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/train.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -17,7 +15,7 @@
     <session id="1143160350">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="4" />
+          <entry key="project.closed" value="5" />
           <entry key="project.open.time.3" value="1" />
           <entry key="project.open.time.7" value="3" />
           <entry key="project.open.time.9" value="1" />
@@ -30,12 +28,12 @@
           <entry key="bat" value="135" />
           <entry key="dummy" value="22" />
           <entry key="py" value="9720" />
-          <entry key="txt" value="145" />
+          <entry key="txt" value="168" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PLAIN_TEXT" value="302" />
+          <entry key="PLAIN_TEXT" value="325" />
           <entry key="Python" value="10301" />
         </counts>
       </usages-collector>
@@ -58,8 +56,8 @@
           <entry key="project.closed" value="5" />
           <entry key="project.open.time.3" value="1" />
           <entry key="project.open.time.4" value="4" />
-          <entry key="project.open.time.5" value="1" />
-          <entry key="project.opened" value="6" />
+          <entry key="project.open.time.5" value="2" />
+          <entry key="project.opened" value="7" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -67,7 +65,7 @@
           <entry key="Python Console" value="57" />
           <entry key="bat" value="344" />
           <entry key="dummy" value="4" />
-          <entry key="py" value="13794" />
+          <entry key="py" value="14430" />
           <entry key="txt" value="475" />
           <entry key="yaml" value="631" />
         </counts>
@@ -75,21 +73,21 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="823" />
-          <entry key="Python" value="13851" />
+          <entry key="Python" value="14487" />
           <entry key="YAML" value="631" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="bat" value="1" />
-          <entry key="py" value="7" />
+          <entry key="py" value="8" />
           <entry key="yaml" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="PLAIN_TEXT" value="1" />
-          <entry key="Python" value="7" />
+          <entry key="Python" value="8" />
           <entry key="YAML" value="1" />
         </counts>
       </usages-collector>
@@ -99,7 +97,7 @@
     <favorites_list name="TripPredictor_3" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.46340024">
+    <splitter split-orientation="horizontal" split-proportion="0.47580138">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="false">
@@ -111,11 +109,11 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/prepare_data.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="545">
-                  <caret line="169" column="30" selection-start-line="169" selection-start-column="30" selection-end-line="169" selection-end-column="30" />
+                <state relative-caret-position="850">
+                  <caret line="50" column="57" lean-forward="true" selection-start-line="50" selection-start-column="57" selection-end-line="50" selection-end-column="57" />
                   <folding>
                     <element signature="e#0#15#0" expanded="true" />
                   </folding>
@@ -123,10 +121,19 @@
               </provider>
             </entry>
           </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/train.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="214">
+                  <caret line="68" lean-forward="true" selection-start-line="68" selection-end-line="68" />
+                </state>
+              </provider>
+            </entry>
+          </file>
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/preprocess_utils.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="17">
+                <state relative-caret-position="3757">
                   <caret line="225" selection-start-line="225" selection-end-line="225" />
                   <folding>
                     <element signature="e#0#19#0" expanded="true" />
@@ -138,7 +145,7 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/preprocess_tests.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="623">
+                <state relative-caret-position="4454">
                   <caret line="270" selection-start-line="270" selection-end-line="270" />
                 </state>
               </provider>
@@ -148,11 +155,11 @@
       </split-first>
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/preprocess_tests.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1600">
-                  <caret line="108" column="34" selection-start-line="108" selection-start-column="34" selection-end-line="108" selection-end-column="34" />
+                <state relative-caret-position="1279">
+                  <caret line="190" column="18" lean-forward="true" selection-start-line="190" selection-start-column="18" selection-end-line="190" selection-end-column="18" />
                 </state>
               </provider>
             </entry>
@@ -160,17 +167,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/train.bat">
               <provider selected="true" editor-type-id="text-editor">
-                <state>
-                  <caret lean-forward="true" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/train.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="287">
-                  <caret line="184" column="44" selection-start-line="184" selection-start-column="44" selection-end-line="184" selection-end-column="44" />
+                <state relative-caret-position="136">
+                  <caret line="8" column="7" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
                 </state>
               </provider>
             </entry>
@@ -178,7 +176,7 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/preprocess.bat">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="112">
+                <state relative-caret-position="119">
                   <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
                 </state>
               </provider>
@@ -207,20 +205,20 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/preprocess_utils.py" />
-        <option value="$PROJECT_DIR$/prepare_data.py" />
         <option value="$PROJECT_DIR$/preprocess_tests.py" />
         <option value="$PROJECT_DIR$/valohai.yaml" />
         <option value="$PROJECT_DIR$/preprocess.bat" />
         <option value="$PROJECT_DIR$/train.bat" />
+        <option value="$PROJECT_DIR$/prepare_data.py" />
         <option value="$PROJECT_DIR$/train.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="856" />
-    <option name="y" value="-10" />
+    <option name="x" value="73" />
+    <option name="y" value="-8" />
     <option name="width" value="960" />
-    <option name="height" value="1040" />
+    <option name="height" value="728" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -245,6 +243,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -256,7 +255,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -460,7 +458,14 @@
       <option name="project" value="LOCAL" />
       <updated>1538680022797</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="using mae as loss">
+      <created>1539073568814</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1539073568814</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TodoView">
@@ -473,23 +478,23 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1176" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" sideWeight="0.5014245" side_tool="true" weight="0.1849315" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.4985755" visible="true" weight="0.10748156" />
+      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.4985755" visible="true" weight="0.16174921" />
       <window_info id="Structure" order="2" sideWeight="0.5014245" side_tool="true" weight="0.1849315" />
       <window_info anchor="bottom" id="Terminal" order="0" sideWeight="0.8097998" weight="0.3206934" />
-      <window_info anchor="bottom" id="Event Log" order="1" sideWeight="0.5063966" side_tool="true" visible="true" weight="0.3253359" />
-      <window_info anchor="bottom" id="Python Console" order="2" sideWeight="0.49307036" weight="0.3391116" />
+      <window_info anchor="bottom" id="Event Log" order="1" sideWeight="0.5073762" side_tool="true" visible="true" weight="0.3261105" />
+      <window_info anchor="bottom" id="Python Console" order="2" sideWeight="0.4926238" weight="0.3391116" />
       <window_info anchor="bottom" id="Message" order="3" />
       <window_info anchor="bottom" id="Find" order="4" weight="0.32917467" />
-      <window_info anchor="bottom" id="Version Control" order="5" sideWeight="0.49525815" weight="0.3336945" />
-      <window_info anchor="bottom" id="Run" order="6" sideWeight="0.4936034" weight="0.3261105" />
+      <window_info anchor="bottom" id="Version Control" order="5" sideWeight="0.49420443" weight="0.3336945" />
+      <window_info active="true" anchor="bottom" id="Run" order="6" sideWeight="0.4926238" visible="true" weight="0.3261105" />
       <window_info anchor="bottom" id="Debug" order="7" sideWeight="0.49947312" weight="0.3997833" />
       <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="10" sideWeight="0.49736565" weight="0.32827735" />
+      <window_info anchor="bottom" id="TODO" order="10" sideWeight="0.49683878" weight="0.32827735" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -532,7 +537,8 @@
     <MESSAGE value="re-fixed indendation" />
     <MESSAGE value="downgraded string formatting for backwards compatibility" />
     <MESSAGE value="typo in valohai.yaml" />
-    <option name="LAST_COMMIT_MESSAGE" value="typo in valohai.yaml" />
+    <MESSAGE value="using mae as loss" />
+    <option name="LAST_COMMIT_MESSAGE" value="using mae as loss" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$USER_HOME$/AppData/Local/Continuum/anaconda3/Lib/site-packages/IPython/core/interactiveshell.py" />
@@ -545,16 +551,10 @@
     <entry file="file://$PROJECT_DIR$/../../../Opiskelu/SGN-41007/asunto_esimerkki/housing.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/valohai.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="608">
-          <caret line="38" column="33" selection-start-line="38" selection-start-column="33" selection-end-line="38" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/preprocess_diff.bat" />
     <entry file="file://$PROJECT_DIR$/preprocess_utils.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
+        <state relative-caret-position="3757">
           <caret line="225" selection-start-line="225" selection-end-line="225" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
@@ -562,44 +562,48 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/preprocess_tests.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1600">
-          <caret line="108" column="34" selection-start-line="108" selection-start-column="34" selection-end-line="108" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/prepare_data.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="545">
-          <caret line="169" column="30" selection-start-line="169" selection-start-column="30" selection-end-line="169" selection-end-column="30" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/preprocess_diff.bat">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/preprocess.bat">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
+        <state relative-caret-position="119">
           <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/train.bat">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret lean-forward="true" />
+        <state relative-caret-position="136">
+          <caret line="8" column="7" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/valohai.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="608">
+          <caret line="38" column="33" selection-start-line="38" selection-start-column="33" selection-end-line="38" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/preprocess_tests.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4454">
+          <caret line="270" selection-start-line="270" selection-end-line="270" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/prepare_data.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="850">
+          <caret line="50" column="57" lean-forward="true" selection-start-line="50" selection-start-column="57" selection-end-line="50" selection-end-column="57" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/train.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="287">
-          <caret line="184" column="44" selection-start-line="184" selection-start-column="44" selection-end-line="184" selection-end-column="44" />
+        <state relative-caret-position="214">
+          <caret line="68" lean-forward="true" selection-start-line="68" selection-end-line="68" />
         </state>
       </provider>
     </entry>
