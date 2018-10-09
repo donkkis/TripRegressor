@@ -1,11 +1,11 @@
 python prepare_data.py ^
--f ./data/trips_bulk_preprocess.csv ^
+-f ./data/trips_diff_fullscale.csv ^
 -e timestamp ^
 -test 0.3 ^
 -or True ^
 -n True ^
 -t rel_soc ^
 -s sequence ^
--o ./data/trips_fullscale_dataset.pickle ^
--ov ./data/trips_fullscale_validate.pickle ^
--sco ./models/standardscaler.pickle
+-o ./data/trips_diff_full_dataset.pickle ^
+-ov ./data/trips_diff_full_validate.pickle ^
+-sco ./models/standardscaler_diff.pickle

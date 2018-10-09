@@ -182,7 +182,7 @@ def train():
                                    mode='min')
 
     # Compile and train the model
-    model.compile(optimizer='adam', loss=mse_exclude_padding)
+    model.compile(optimizer='adam', loss=mae_exclude_padding)
     model.fit_generator(batch_gen,
                         epochs=FLAGS.epochs,
                         verbose=1,
