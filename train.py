@@ -189,7 +189,7 @@ def train():
     # save_best_only = True --> model_outfile will be overwritten each time val_loss improves
     model_checkpoint = ModelCheckpoint(model_outfile, monitor='val_loss', verbose=1, save_best_only=True)
     csv_logger = CSVLogger('{}.log'.format(tic))
-    early_stopping = EarlyStopping(monitor='val_loss', min_delta=0, patience=20, verbose=0,
+    early_stopping = EarlyStopping(monitor='val_loss', min_delta=0, patience=FLAGS.patience, verbose=0,
                                    mode='min')
 
     # Compile and train the model

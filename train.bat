@@ -1,5 +1,5 @@
 python train.py ^
--f ./data/trips_diff_full_dataset.pickle ^
+-f ./data/trips_diff_full_dataset2.pickle ^
 -e 200 ^
 -p 200 ^
 -l 4 ^
