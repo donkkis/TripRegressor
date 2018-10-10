@@ -3,6 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="a2f56e6f-27df-45e3-aec4-b453e90f41b4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepare_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/prepare_data.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/preprocess.bat" beforeDir="false" afterPath="$PROJECT_DIR$/preprocess.bat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/preprocess_tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/preprocess_tests.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/train.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -53,41 +56,43 @@
     <session id="-206529290">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="5" />
+          <entry key="project.closed" value="6" />
+          <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.3" value="1" />
           <entry key="project.open.time.4" value="4" />
           <entry key="project.open.time.5" value="2" />
-          <entry key="project.opened" value="7" />
+          <entry key="project.opened" value="8" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="Python Console" value="57" />
-          <entry key="bat" value="344" />
+          <entry key="Python Console" value="67" />
+          <entry key="bat" value="347" />
           <entry key="dummy" value="4" />
-          <entry key="py" value="14430" />
-          <entry key="txt" value="475" />
+          <entry key="py" value="15533" />
+          <entry key="txt" value="566" />
           <entry key="yaml" value="631" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PLAIN_TEXT" value="823" />
-          <entry key="Python" value="14487" />
+          <entry key="PLAIN_TEXT" value="917" />
+          <entry key="Python" value="15600" />
           <entry key="YAML" value="631" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="bat" value="1" />
-          <entry key="py" value="8" />
+          <entry key="bat" value="2" />
+          <entry key="csv" value="1" />
+          <entry key="py" value="13" />
           <entry key="yaml" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="PLAIN_TEXT" value="1" />
-          <entry key="Python" value="8" />
+          <entry key="PLAIN_TEXT" value="3" />
+          <entry key="Python" value="13" />
           <entry key="YAML" value="1" />
         </counts>
       </usages-collector>
@@ -97,23 +102,39 @@
     <favorites_list name="TripPredictor_3" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.47580138">
+    <splitter split-orientation="horizontal" split-proportion="0.48757172">
       <split-first>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+        <leaf>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/valohai.yaml">
+            <entry file="file://$PROJECT_DIR$/train.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="608">
-                  <caret line="38" column="33" selection-start-line="38" selection-start-column="33" selection-end-line="38" selection-end-column="33" />
+                <state relative-caret-position="367">
+                  <caret line="146" column="50" selection-start-line="146" selection-start-column="50" selection-end-line="146" selection-end-column="50" />
                 </state>
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/prepare_data.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="850">
-                  <caret line="50" column="57" lean-forward="true" selection-start-line="50" selection-start-column="57" selection-end-line="50" selection-end-column="57" />
+                <state relative-caret-position="-2126">
+                  <caret line="28" column="27" lean-forward="true" selection-start-line="28" selection-start-column="27" selection-end-line="28" selection-end-column="27" />
+                  <folding>
+                    <element signature="e#0#15#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/preprocess_tests.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="-615">
+                  <caret line="281" column="27" selection-start-line="281" selection-start-column="27" selection-end-line="281" selection-end-column="27" />
                   <folding>
                     <element signature="e#0#15#0" expanded="true" />
                   </folding>
@@ -122,62 +143,10 @@
             </entry>
           </file>
           <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/train.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="214">
-                  <caret line="68" lean-forward="true" selection-start-line="68" selection-end-line="68" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/preprocess_utils.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="3757">
-                  <caret line="225" selection-start-line="225" selection-end-line="225" />
-                  <folding>
-                    <element signature="e#0#19#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/preprocess_tests.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="4454">
-                  <caret line="270" selection-start-line="270" selection-end-line="270" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/preprocess_tests.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1279">
-                  <caret line="190" column="18" lean-forward="true" selection-start-line="190" selection-start-column="18" selection-end-line="190" selection-end-column="18" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/train.bat">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="136">
-                  <caret line="8" column="7" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/preprocess.bat">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="119">
-                  <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+                <state relative-caret-position="170">
+                  <caret line="10" column="8" lean-forward="true" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="8" />
                 </state>
               </provider>
             </entry>
@@ -205,20 +174,19 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/preprocess_utils.py" />
-        <option value="$PROJECT_DIR$/preprocess_tests.py" />
         <option value="$PROJECT_DIR$/valohai.yaml" />
-        <option value="$PROJECT_DIR$/preprocess.bat" />
         <option value="$PROJECT_DIR$/train.bat" />
-        <option value="$PROJECT_DIR$/prepare_data.py" />
+        <option value="$PROJECT_DIR$/lstm_trip_model.py" />
         <option value="$PROJECT_DIR$/train.py" />
+        <option value="$PROJECT_DIR$/prepare_data.py" />
+        <option value="$PROJECT_DIR$/preprocess_tests.py" />
+        <option value="$PROJECT_DIR$/preprocess.bat" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="73" />
-    <option name="y" value="-8" />
     <option name="width" value="960" />
-    <option name="height" value="728" />
+    <option name="height" value="1040" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -465,7 +433,21 @@
       <option name="project" value="LOCAL" />
       <updated>1539073568814</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="add batch ordering in SequenceBatchGenerator">
+      <created>1539114099256</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1539114099257</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Using zeros for padding">
+      <created>1539150313083</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1539150313083</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TodoView">
@@ -482,15 +464,15 @@
     <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" sideWeight="0.5014245" side_tool="true" weight="0.1849315" />
-      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.4985755" visible="true" weight="0.16174921" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.4985755" visible="true" weight="0.16174921" />
       <window_info id="Structure" order="2" sideWeight="0.5014245" side_tool="true" weight="0.1849315" />
       <window_info anchor="bottom" id="Terminal" order="0" sideWeight="0.8097998" weight="0.3206934" />
-      <window_info anchor="bottom" id="Event Log" order="1" sideWeight="0.5073762" side_tool="true" visible="true" weight="0.3261105" />
-      <window_info anchor="bottom" id="Python Console" order="2" sideWeight="0.4926238" weight="0.3391116" />
+      <window_info anchor="bottom" id="Event Log" order="1" sideWeight="0.50790304" side_tool="true" visible="true" weight="0.3261105" />
+      <window_info anchor="bottom" id="Python Console" order="2" sideWeight="0.49209693" weight="0.3391116" />
       <window_info anchor="bottom" id="Message" order="3" />
       <window_info anchor="bottom" id="Find" order="4" weight="0.32917467" />
-      <window_info anchor="bottom" id="Version Control" order="5" sideWeight="0.49420443" weight="0.3336945" />
-      <window_info active="true" anchor="bottom" id="Run" order="6" sideWeight="0.4926238" visible="true" weight="0.3261105" />
+      <window_info anchor="bottom" id="Version Control" order="5" sideWeight="0.4936034" weight="0.3336945" />
+      <window_info anchor="bottom" id="Run" order="6" sideWeight="0.49209693" visible="true" weight="0.3261105" />
       <window_info anchor="bottom" id="Debug" order="7" sideWeight="0.49947312" weight="0.3997833" />
       <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
@@ -538,7 +520,9 @@
     <MESSAGE value="downgraded string formatting for backwards compatibility" />
     <MESSAGE value="typo in valohai.yaml" />
     <MESSAGE value="using mae as loss" />
-    <option name="LAST_COMMIT_MESSAGE" value="using mae as loss" />
+    <MESSAGE value="add batch ordering in SequenceBatchGenerator" />
+    <MESSAGE value="Using zeros for padding" />
+    <option name="LAST_COMMIT_MESSAGE" value="Using zeros for padding" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$USER_HOME$/AppData/Local/Continuum/anaconda3/Lib/site-packages/IPython/core/interactiveshell.py" />
@@ -556,23 +540,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3757">
           <caret line="225" selection-start-line="225" selection-end-line="225" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/preprocess.bat">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/train.bat">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="7" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
         </state>
       </provider>
     </entry>
@@ -583,27 +550,54 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/preprocess_tests.py">
+    <entry file="file://$PROJECT_DIR$/train.bat">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4454">
-          <caret line="270" selection-start-line="270" selection-end-line="270" />
+        <state relative-caret-position="136">
+          <caret line="8" column="7" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lstm_trip_model.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="472">
+          <caret line="153" column="15" selection-start-line="153" selection-start-column="15" selection-end-line="153" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/trips_bulk_preprocess.csv">
+      <provider selected="true" editor-type-id="LargeFileEditor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/train.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="367">
+          <caret line="146" column="50" selection-start-line="146" selection-start-column="50" selection-end-line="146" selection-end-column="50" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/prepare_data.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="850">
-          <caret line="50" column="57" lean-forward="true" selection-start-line="50" selection-start-column="57" selection-end-line="50" selection-end-column="57" />
+        <state relative-caret-position="-2126">
+          <caret line="28" column="27" lean-forward="true" selection-start-line="28" selection-start-column="27" selection-end-line="28" selection-end-column="27" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/train.py">
+    <entry file="file://$PROJECT_DIR$/preprocess_tests.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="214">
-          <caret line="68" lean-forward="true" selection-start-line="68" selection-end-line="68" />
+        <state relative-caret-position="-615">
+          <caret line="281" column="27" selection-start-line="281" selection-start-column="27" selection-end-line="281" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/preprocess.bat">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="8" lean-forward="true" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="8" />
         </state>
       </provider>
     </entry>

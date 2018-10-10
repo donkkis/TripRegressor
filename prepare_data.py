@@ -4,14 +4,18 @@ import numpy as np
 import pickle
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
+from sklearn.preprocessing import MinMaxScaler
 
 SEQID_COL = 'sequence'
+FLAGS = argparse.Namespace()
 
 
 def normalize(data: pd.DataFrame, outfile=None) -> pd.DataFrame:
     """
     Args:
         data (pandas.DataFrame) : DF to be normalized
+        outfile (str) : Path to write the fitted scaler object
+        method (srt) : standard or minmax scaler
     Returns:
         data (pandas.DataFrame) : Normalized df except for SEQID_COL column
     """
@@ -19,7 +23,12 @@ def normalize(data: pd.DataFrame, outfile=None) -> pd.DataFrame:
 
     # Ignore categorical columns
     to_be_normalized = list(data.select_dtypes(include=np.number).keys())
+    # Ignore the sequence identifier
     to_be_normalized.remove(SEQID_COL)
+    # Ignore target columns
+    if FLAGS.target_columns:
+        for target in FLAGS.target_columns:
+            to_be_normalized.remove(target)
 
     data[to_be_normalized] = sc.fit_transform(data[to_be_normalized])
 
@@ -144,7 +153,9 @@ if __name__ == '__main__':
     parser.add_argument('-ov', '--out_file_validate', type=str, required=True,
                         help='path for pickled validation object output')
     parser.add_argument('-sco', '--out_file_scaler', type=str, required=True,
-                        help='output path for MinMaxScaler object')
+                        help='output path for Scaler object')
+    parser.add_argument('-nm', '--normalize_method', type=str, default='standard',
+                        help='choose from standard or minmax scaler')
 
     FLAGS, unparsed = parser.parse_known_args()
     SEQID_COL = FLAGS.seqid_col

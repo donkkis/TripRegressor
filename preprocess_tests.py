@@ -7,7 +7,7 @@ from preprocess_utils import *
 import prepare_data as prep
 import train
 import tensorflow as tf
-
+import argparse
 
 # ---STATIC---
 
@@ -239,6 +239,12 @@ class TestPrepareData(unittest.TestCase):
     def test_prepare_dataset_with_normalization(self):
         prep.SEQID_COL = 'seq_id'
         df1 = pd.read_csv('./data/dummy_ordered.csv')
+
+        # Normalize targets
+        prep.FLAGS = argparse.Namespace()
+        prep.FLAGS.__setattr__('target_columns', [])
+
+
         X1, y1 = prep.prepare_dataset(df1, target_cols=['soc'], order=False, normalize_data=True)
 
         df2 = pd.read_csv('./data/dummy_standardized.csv')
@@ -253,6 +259,12 @@ class TestPrepareData(unittest.TestCase):
     def test_prepare_dataset_with_normalization_and_ordering(self):
         prep.SEQID_COL = 'seq_id'
         df1 = pd.read_csv('./data/dummy_unordered.csv')
+
+        # Normalize targets
+        prep.FLAGS = argparse.Namespace()
+        prep.FLAGS.__setattr__('target_columns', [])
+
+
         X1, y1 = prep.prepare_dataset(df1, target_cols=['soc'], order=True, normalize_data=True)
 
         df2 = pd.read_csv('./data/dummy_standardized.csv')
@@ -266,6 +278,12 @@ class TestPrepareData(unittest.TestCase):
 
     def test_prepare_dataset_with_normalization_ordering_and_excludes(self):
         prep.SEQID_COL = 'seq_id'
+
+        # Normalize targets
+        prep.FLAGS = argparse.Namespace()
+        prep.FLAGS.__setattr__('target_columns', [])
+
+
         df1 = pd.read_csv('./data/dummy_unordered.csv')
         df1 = df1.drop(['timestamp', 'gpslat'], axis=1)
         X1, y1 = prep.prepare_dataset(df1, target_cols=['soc'], order=True, normalize_data=True)
@@ -293,12 +311,35 @@ class TestPrepareData(unittest.TestCase):
         df = pd.DataFrame(data=d)
 
         prep.SEQID_COL = 'col3'
+        prep.FLAGS = argparse.Namespace()
+        prep.FLAGS.__setattr__('target_columns', [])
 
         norm_data = prep.normalize(df.copy())
         self.assertFalse(df['col1'].equals(norm_data['col1']))
         self.assertFalse(df['col2'].equals(norm_data['col2']))
         self.assertTrue(df['col3'].equals(norm_data['col3']))
         self.assertFalse(df['col4'].equals(norm_data['col4']))
+
+    def test_normalize_with_targets(self):
+
+        col1 = random.sample(range(0, 100), 10)
+        col2 = random.sample(range(0, 100), 10)
+
+        d = {'col1': col1,
+             'col2': col2,
+             'col3': [1, 1, 1, 2, 2, 3, 3, 3, 3, 4],
+             'col4': [2, 3, 5, 6, 8, 9, 1, 1, 3, 6]}
+        df = pd.DataFrame(data=d)
+
+        prep.SEQID_COL = 'col3'
+        prep.FLAGS = argparse.Namespace()
+        prep.FLAGS.__setattr__('target_columns', ['col4'])
+
+        norm_data = prep.normalize(df.copy())
+        self.assertFalse(df['col1'].equals(norm_data['col1']))
+        self.assertFalse(df['col2'].equals(norm_data['col2']))
+        self.assertTrue(df['col3'].equals(norm_data['col3']))
+        self.assertTrue(df['col4'].equals(norm_data['col4']))
 
 
 if __name__ == "__main__":

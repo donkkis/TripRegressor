@@ -6,6 +6,6 @@ python prepare_data.py ^
 -n True ^
 -t rel_soc ^
 -s sequence ^
--o ./data/trips_diff_full_dataset.pickle ^
--ov ./data/trips_diff_full_validate.pickle ^
--sco ./models/standardscaler_diff.pickle
+-o ./data/trips_diff_full_dataset2.pickle ^
+-ov ./data/trips_diff_full_validate2.pickle ^
+-sco ./models/standardscaler_diff2.pickle
