@@ -89,8 +89,8 @@ class SequenceBatchGenerator(Sequence):
         # Zero pad all samples within batch to max length
         for i in range(len(batch_x)):
             padding_dims = ((0, 0), (0, max_timesteps_batch - batch_x[i].shape[1]), (0, 0))
-            batch_x[i] = np.pad(batch_x[i], padding_dims, 'constant', constant_values=(None, -999.0))
-            batch_y[i] = np.pad(batch_y[i], padding_dims, 'constant', constant_values=(None, -999.0))
+            batch_x[i] = np.pad(batch_x[i], padding_dims, 'constant', constant_values=(None, 0))
+            batch_y[i] = np.pad(batch_y[i], padding_dims, 'constant', constant_values=(None, 0))
 
             # Reshape to meet Keras expectation
             batch_x[i][0] = np.reshape(batch_x[i].transpose(), (1, max_timesteps_batch, self.input_dim))
@@ -129,7 +129,7 @@ def mae_exclude_padding(y_true, y_pred):
         y_true, y_pred: tf.Tensors of shape (batch_size, max_timesteps, output_dim)
     Returns:
     """
-    y_mask = tf.not_equal(y_true, tf.constant(-999.0, dtype=tf.float32))
+    y_mask = tf.not_equal(y_true, tf.constant(0, dtype=tf.float32))
     y_true_masked = tf.boolean_mask(y_true, y_mask)
     y_pred_masked = tf.boolean_mask(y_pred, y_mask)
 
@@ -144,7 +144,7 @@ def mse_exclude_padding(y_true, y_pred):
         y_true, y_pred: tf.Tensors of shape (batch_size, max_timesteps, output_dim)
     Returns:
     """
-    y_mask = tf.not_equal(y_true, tf.constant(-999.0, dtype=tf.float32))
+    y_mask = tf.not_equal(y_true, tf.constant(0, dtype=tf.float32))
     y_true_masked = tf.boolean_mask(y_true, y_mask)
     y_pred_masked = tf.boolean_mask(y_pred, y_mask)
 
