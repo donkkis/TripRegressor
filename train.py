@@ -3,6 +3,7 @@ from keras.models import load_model
 from keras.layers import Dense
 from keras.layers import TimeDistributed
 from keras.layers import LSTM
+from keras.layers import CuDNNLSTM
 from keras.layers import Dropout
 from keras.utils import Sequence
 from keras.callbacks import EarlyStopping
@@ -62,13 +63,13 @@ class SequenceBatchGenerator(Sequence):
         # TODO Refactor into a function and add unit test
         # make sure sequences are ascending by length to reduce padding
         # get the lenghts of the elements in x_train
-        lengths = np.array([[idx, trip.shape[1]] for idx, trip in enumerate(x_set)])
-        lengths = lengths[lengths[:, 1].argsort()]
+        # lengths = np.array([[idx, trip.shape[1]] for idx, trip in enumerate(x_set)])
+        # lengths = lengths[lengths[:, 1].argsort()]
         # order x_train, y_train to ascending order by sequence length
-        idx = lengths[:, 0].tolist()
+        # idx = lengths[:, 0].tolist()
 
-        x_set = [x_set[i] for i in idx]
-        y_set = [y_set[i] for i in idx]
+        # x_set = [x_set[i] for i in idx]
+        # y_set = [y_set[i] for i in idx]
 
         self.x, self.y = x_set, y_set
 
@@ -89,12 +90,12 @@ class SequenceBatchGenerator(Sequence):
         # Zero pad all samples within batch to max length
         for i in range(len(batch_x)):
             padding_dims = ((0, 0), (0, max_timesteps_batch - batch_x[i].shape[1]), (0, 0))
-            batch_x[i] = np.pad(batch_x[i], padding_dims, 'constant', constant_values=(None, -999))
-            batch_y[i] = np.pad(batch_y[i], padding_dims, 'constant', constant_values=(None, -999))
+            batch_x[i] = np.pad(batch_x[i], padding_dims, 'constant', constant_values=(None, 0))
+            batch_y[i] = np.pad(batch_y[i], padding_dims, 'constant', constant_values=(None, 0))
 
             # Reshape to meet Keras expectation
-            batch_x[i][0] = np.reshape(batch_x[i].transpose(), (1, max_timesteps_batch, self.input_dim))
-            batch_y[i][0] = np.reshape(batch_y[i].transpose(), (1, max_timesteps_batch, self.output_dim))
+            # batch_x[i] = np.reshape(batch_x[i].transpose(), (1, max_timesteps_batch, self.input_dim))
+            # batch_y[i] = np.reshape(batch_y[i].transpose(), (1, max_timesteps_batch, self.output_dim))
 
             # Append x, y to returnable tensor
             batch_x_tensor[i, :, :] = batch_x[i]
@@ -108,12 +109,12 @@ def get_model(input_dim, lstm_layers=1, lstm_units=50, dropout_rate=0.2):
     model = Sequential()
 
     #LSTM Layers and dropout regularization
-    model.add(LSTM(units = lstm_units, return_sequences=True,
+    model.add(CuDNNLSTM(units = lstm_units, return_sequences=True,
                    input_shape = (None, input_dim)))
     model.add(Dropout(rate = dropout_rate))
 
     for i in range(lstm_layers-1):
-        model.add(LSTM(units = lstm_units, return_sequences=True))
+        model.add(CuDNNLSTM(units = lstm_units, return_sequences=True))
         model.add(Dropout(rate = dropout_rate))
 
     #Linear output layer
@@ -129,7 +130,7 @@ def mae_exclude_padding(y_true, y_pred):
         y_true, y_pred: tf.Tensors of shape (batch_size, max_timesteps, output_dim)
     Returns:
     """
-    y_mask = tf.not_equal(y_true, tf.constant(-999, dtype=tf.float32))
+    y_mask = tf.not_equal(y_true, tf.constant(0, dtype=tf.float32))
     y_true_masked = tf.boolean_mask(y_true, y_mask)
     y_pred_masked = tf.boolean_mask(y_pred, y_mask)
 
@@ -144,7 +145,7 @@ def mse_exclude_padding(y_true, y_pred):
         y_true, y_pred: tf.Tensors of shape (batch_size, max_timesteps, output_dim)
     Returns:
     """
-    y_mask = tf.not_equal(y_true, tf.constant(-999, dtype=tf.float32))
+    y_mask = tf.not_equal(y_true, tf.constant(0, dtype=tf.float32))
     y_true_masked = tf.boolean_mask(y_true, y_mask)
     y_pred_masked = tf.boolean_mask(y_pred, y_mask)
 
@@ -177,6 +178,11 @@ def train():
     batch_test_gen = SequenceBatchGenerator(X_test, y_test)
 
     # TODO Should check equal input_dim for X_test and X_train?
+    print(batch_gen.input_dim)
+    print(FLAGS.lstm_layers)
+    print(FLAGS.units_per_layer)
+    print(FLAGS.dropout_rate)
+    print(X_train[0].shape)
     model = get_model(input_dim=batch_gen.input_dim, lstm_layers=FLAGS.lstm_layers,
                       lstm_units=FLAGS.units_per_layer, dropout_rate=FLAGS.dropout_rate)
     val_steps = np.floor(len(X_test) / FLAGS.batch_size_val)

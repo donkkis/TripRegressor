@@ -1,11 +1,12 @@
 python prepare_data.py ^
 -f ./data/trips_diff_fullscale.csv ^
--e timestamp ^
+-e timestamp sequence ^
 -test 0.3 ^
 -or True ^
 -n True ^
 -t rel_soc ^
 -s sequence ^
--o ./data/trips_diff_full_dataset2.pickle ^
--ov ./data/trips_diff_full_validate2.pickle ^
--sco ./models/standardscaler_diff2.pickle
+-o ./data/trips_diff_full_dataset_minmax.pickle ^
+-ov ./data/trips_diff_full_validate_minmax.pickle ^
+-nm minmax ^
+-sco ./models/standardscaler_diff_minmax.pickle

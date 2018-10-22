@@ -10,7 +10,7 @@ SEQID_COL = 'sequence'
 FLAGS = argparse.Namespace()
 
 
-def normalize(data: pd.DataFrame, outfile=None) -> pd.DataFrame:
+def normalize(data: pd.DataFrame, outfile=None, method='standard') -> pd.DataFrame:
     """
     Args:
         data (pandas.DataFrame) : DF to be normalized
@@ -19,7 +19,10 @@ def normalize(data: pd.DataFrame, outfile=None) -> pd.DataFrame:
     Returns:
         data (pandas.DataFrame) : Normalized df except for SEQID_COL column
     """
-    sc = StandardScaler()
+    if method == 'minmax':
+        sc = MinMaxScaler()
+    else:
+        sc = StandardScaler()
 
     # Ignore categorical columns
     to_be_normalized = list(data.select_dtypes(include=np.number).keys())
@@ -89,7 +92,7 @@ def dataset_to_numpy(X, y):
     return X, y
 
 
-def prepare_dataset(data, target_cols, outfile_scaler=None, outfile='./data/dump.pickle', outfile_val='./data/dump_val.pickle', exclude=[], order=True, normalize_data=True, test_size=0.05):
+def prepare_dataset(data, target_cols, outfile_scaler=None, outfile='./data/dump.pickle', outfile_val='./data/dump_val.pickle', exclude=[], order=True, normalize_data=True, test_size=0.05, method='standard'):
     """
 
     Args:
@@ -104,7 +107,7 @@ def prepare_dataset(data, target_cols, outfile_scaler=None, outfile='./data/dump
     """
 
     if normalize_data:
-        data = normalize(data, outfile_scaler)
+        data = normalize(data, outfile_scaler, method)
     data = data_to_list(data)
     if order:
         data = order_sequences_by_length(data)
@@ -169,6 +172,7 @@ if __name__ == '__main__':
     outfile = FLAGS.out_file
     outfile_val = FLAGS.out_file_validate
     outfile_scaler = FLAGS.out_file_scaler
+    method = FLAGS.normalize_method
 
     prepare_dataset(data,
                     target_cols,
@@ -178,4 +182,5 @@ if __name__ == '__main__':
                     exclude,
                     order,
                     normalize_data,
-                    test_size)
+                    test_size,
+                    method)

@@ -1,4 +1,6 @@
 data/
 models/
+examples/ebus/data/raw_trips_191018.mat
 dump.m
 trips_bulk.m
+train_111018.xlsx
